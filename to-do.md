@@ -1,7 +1,7 @@
 Task List
-[ ]Use axios to retrieve (GET) data from to /gallery and store it in App.jsx.
+[x]Use axios to retrieve (GET) data from to /gallery and store it in App.jsx.
 create a new component for the GalleryList and pass it the gallery data stored in App via props.
-[ ]Iterate (loop over) the list of gallery data
+[x]Iterate (loop over) the list of gallery data
 [ ]Make GalleryItems
 [ ]Create a new component called GalleryItem.jsx and pass it the individual gallery item via props.
 [ ]Update the GalleryList to use this component to display an image.

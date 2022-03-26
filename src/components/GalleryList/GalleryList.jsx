@@ -1,9 +1,14 @@
+import GalleryItem from "../GalleryItem/GalleryItem";
+
 function GalleryList({galleryList}) {
     return (
         <>
             <ul>
                 {galleryList.map(galleryItem =>
-                <img src={galleryItem.path} alt={galleryItem.description}/> 
+                    <GalleryItem
+                        key={galleryItem.id}
+                        galleryItem={galleryItem}
+                    />
                 )}
             </ul>
         </>
