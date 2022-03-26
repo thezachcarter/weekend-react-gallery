@@ -3,6 +3,7 @@ import {useState, useEffect} from 'react';
 import axios from 'axios';
 
 import './App.css';
+import GalleryList from '../GalleryList/GalleryList';
 
 function App() {
 
@@ -15,7 +16,8 @@ function App() {
   const getItems = () => {
     axios.get('/gallery')
     .then(response => {
-      setItemList(response.data);
+      setGalleryList(response.data);
+      console.log(response);
     })
     .catch(err => {
       console.log('Error in app GET,', err)
@@ -27,8 +29,9 @@ function App() {
         <header className="App-header">
           <h1 className="App-title">Gallery of My Life</h1>
         </header>
-        <p>Gallery goes here</p>
-        <img src="images/goat_small.jpg"/>
+          <GalleryList 
+            galleryList={galleryList}
+          />
       </div>
     );
 }

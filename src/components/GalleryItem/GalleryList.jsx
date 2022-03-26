@@ -1,1 +1,0 @@
-import Pics from '../../../public/images'
