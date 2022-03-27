@@ -21,7 +21,8 @@ const pool = require('../modules/pool.js');
 
     router.put('/like/:id/:likes', (req, res) => {
         let galleryId = req.params.id;
-        let galleryLikes = req.params.likes += 1;
+        let galleryLikes = req.params.likes;
+        galleryLikes = Number(galleryLikes) + 1;
         
             const queryText = `
             UPDATE "images"
