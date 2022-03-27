@@ -1,4 +1,6 @@
 import {useState} from 'react';
+import ImageListItem from '@mui/material/ImageListItem';
+import ImageListItemBar from '@mui/material/ImageListItemBar';
 
 // let displayItem = <img src={galleryItem.path} alt={galleryItem.description}/>;
 
@@ -17,14 +19,36 @@ function GalleryItem({galleryItem, updateLikes}) {
     }
 
     return(
-        <>
-            <div className="imageBox">
+        
+            /* <div className="imageBox">
                 {itemDisplay ? <img onClick={displayToggle} src={galleryItem.path} alt={galleryItem.description}/> : 
                 <p onClick={displayToggle}>{galleryItem.description}</p>}           
 
-                <button onClick={(event) => {handleLike(galleryItem)}}>Good Boy! Have a treat!</button><p>🦴 = {galleryItem.likes}</p>
-            </div>
-        </>
+                <button onClick={(event) => {handleLike(galleryItem)}}>Good Boy! Have a Treat!</button><p>🦴 = {galleryItem.likes}</p>
+            </div> */
+
+        
+
+        // <div className="imageBox">
+            
+                <ImageListItem key={galleryItem.path}>
+                    {itemDisplay ? <img
+                    onClick={displayToggle}
+                    src={`${galleryItem.path}?w=248&fit=crop&auto=format`}
+                    srcSet={`${galleryItem.path}?w=248&fit=crop&auto=format&dpr=2 2x`}
+                    alt={galleryItem.description}
+                    loading="lazy"
+                    /> : <p onClick={displayToggle}>{galleryItem.description}</p>}
+                    
+                    <ImageListItemBar
+                    title={<button onClick={(event) => {handleLike(galleryItem)}}>Good Boy! Have a Treat!</button>}
+                    // subtitle={<span>🦴 treats 🦴 = {galleryItem.likes}</span>}
+                    position="below"
+                    />
+                </ImageListItem>
+                
+        
+
     )
 }
 
