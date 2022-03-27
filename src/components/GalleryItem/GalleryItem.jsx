@@ -43,7 +43,8 @@ function GalleryItem({galleryItem, updateLikes}) {
                     srcSet={`${galleryItem.path}?w=248&fit=crop&auto=format&dpr=2 2x`}
                     alt={galleryItem.description}
                     loading="lazy"
-                    /> : <p className="Description" onClick={displayToggle} onPointerLeave={displayToggle}>{galleryItem.description}</p>}
+                    /> : <p className="Description" onClick={displayToggle} onPointerLeave={displayToggle}>
+                        {galleryItem.description}</p>}
                     
                     {btnDisplay ?
                     <ImageListItemBar
@@ -52,7 +53,7 @@ function GalleryItem({galleryItem, updateLikes}) {
                     />
                     :
                     <ImageListItemBar
-                    title={<Button>🦴 {galleryItem.likes} treats 🦴</Button>}
+                    title={<Button>🦴 total treats : {galleryItem.likes} 🦴</Button>}
                     position="below"
                     />
                     }
