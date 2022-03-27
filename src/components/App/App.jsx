@@ -5,6 +5,14 @@ import axios from 'axios';
 import './App.css';
 import GalleryList from '../GalleryList/GalleryList';
 
+import '@fontsource/roboto/300.css';
+import '@fontsource/roboto/400.css';
+import '@fontsource/roboto/500.css';
+import '@fontsource/roboto/700.css';
+import CssBaseline from '@mui/material/CssBaseline';
+import Box from '@mui/material/Box';
+import Container from '@mui/material/Container';
+
 function App() {
 
   const [galleryList, setGalleryList] = useState([]);
@@ -37,15 +45,21 @@ function App() {
 }
 
     return (
-      <div className="App">
-        <header className="App-header">
-          <h1 className="App-title">Gallery</h1>
-        </header>
-          <GalleryList 
-            galleryList={galleryList}
-            updateLikes={updateLikes}
-          />
-      </div>
+
+        
+        <div className="App">
+          <CssBaseline />
+          <header className="App-header">
+            <h1 className="App-title">GORDO <span className="App-subtitle">the dog...</span></h1>
+          </header>
+          <Container maxWidth="sm" maxHeight="sm">
+            <GalleryList 
+              galleryList={galleryList}
+              updateLikes={updateLikes}
+            />
+          </Container>
+        </div>
+      
     );
 }
 
