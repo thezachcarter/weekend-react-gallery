@@ -52,7 +52,7 @@ function App() {
           <header className="App-header">
             <h1 className="App-title">GORDO <span className="App-subtitle">the dog...</span></h1>
           </header>
-          <Container maxWidth="sm">
+          <Container maxWidth="100vh">
             <GalleryList 
               galleryList={galleryList}
               updateLikes={updateLikes}

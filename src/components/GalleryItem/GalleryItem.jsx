@@ -37,15 +37,14 @@ function GalleryItem({galleryItem, updateLikes}) {
             
                 <ImageListItem key={galleryItem.path}>
                     {itemDisplay ? <img
-                    onPointerEnter={displayToggle}
                     onClick={displayToggle}
                     src={`${galleryItem.path}?w=248&fit=crop&auto=format`}
                     srcSet={`${galleryItem.path}?w=248&fit=crop&auto=format&dpr=2 2x`}
                     alt={galleryItem.description}
                     loading="lazy"
-                    /> : <p className="Description" onClick={displayToggle} onPointerLeave={displayToggle}>
-                        {galleryItem.description}</p>}
-                    
+                    /> : <p className="Description" onClick={displayToggle}>
+                        <u>{galleryItem.description}</u></p>}
+
                     {btnDisplay ?
                     <ImageListItemBar
                     title={<Button onClick={(event) => {handleLike(galleryItem)}} variant="outlined">Good Boy! Have a Treat!</Button>}
