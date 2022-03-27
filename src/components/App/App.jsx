@@ -33,8 +33,8 @@ function App() {
   }
 
   const updateLikes = (itemToUpdate) => {
-    console.log('Update Likes in app');
-    axios.put(`/gallery/like/${itemToUpdate.id}`)
+    console.log('Update Likes in app', itemToUpdate);
+    axios.put(`/gallery/like/${itemToUpdate.id}/${itemToUpdate.likes}`)
     .then(response => {
         getItems();
         console.log('Updated', itemToUpdate)
@@ -52,7 +52,7 @@ function App() {
           <header className="App-header">
             <h1 className="App-title">GORDO <span className="App-subtitle">the dog...</span></h1>
           </header>
-          <Container maxWidth="sm" maxHeight="sm">
+          <Container maxWidth="sm">
             <GalleryList 
               galleryList={galleryList}
               updateLikes={updateLikes}
