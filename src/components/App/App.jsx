@@ -50,7 +50,7 @@ function App() {
         <div className="App">
           <CssBaseline />
           <header className="App-header">
-            <h1 className="App-title">GORDO the dog</h1>
+            <h1 className="App-title">GORDO <span className="App-subtitle">the dog...</span></h1>
           </header>
           <Container maxWidth="sm" maxHeight="sm">
             <GalleryList 
@@ -58,10 +58,6 @@ function App() {
               updateLikes={updateLikes}
             />
           </Container>
-
-          <footer className="App-header">
-            <h1 className="App-title">GORDO the dog</h1>
-          </footer>
         </div>
       
     );

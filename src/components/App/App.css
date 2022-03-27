@@ -3,23 +3,22 @@
 }
 
 .App-header {
-  background-color: #222;
-  padding: 1em;
+  background-color: #1976d2;
+  padding: 0.5em;
   color: white;
-  margin-bottom: 1em;
+  margin-bottom: 0.5em;
 }
 
 .App-title {
   font-size: 1.5em;
 }
 
-.imageBox {
-  height: 280px;
-  width: 200px;
+.Description {
+  height: 15.1em;
+  width: 15.1em;
+  color: #1976d2;
 }
 
-img {
-  height: 200px;
-  width: 200px;
+.Treats {
+  height: 0.5em;
 }
-

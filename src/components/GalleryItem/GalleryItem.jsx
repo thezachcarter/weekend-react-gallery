@@ -1,4 +1,6 @@
 import {useState} from 'react';
+import Stack from '@mui/material/Stack';
+import Button from '@mui/material/Button';
 import ImageListItem from '@mui/material/ImageListItem';
 import ImageListItemBar from '@mui/material/ImageListItemBar';
 
@@ -8,6 +10,7 @@ function GalleryItem({galleryItem, updateLikes}) {
     console.log(galleryItem);
 
     const [itemDisplay, setItemDisplay] = useState(true);
+    const [btnDisplay, setBtnDisplay] = useState(true);
 
     const displayToggle = () => {
         setItemDisplay(!itemDisplay)
@@ -16,6 +19,7 @@ function GalleryItem({galleryItem, updateLikes}) {
     const handleLike =() => {
         console.log('Good Boy! clicked', galleryItem);
         updateLikes(galleryItem);
+        setBtnDisplay(false);
     }
 
     return(
@@ -33,21 +37,26 @@ function GalleryItem({galleryItem, updateLikes}) {
             
                 <ImageListItem key={galleryItem.path}>
                     {itemDisplay ? <img
+                    onPointerEnter={displayToggle}
                     onClick={displayToggle}
                     src={`${galleryItem.path}?w=248&fit=crop&auto=format`}
                     srcSet={`${galleryItem.path}?w=248&fit=crop&auto=format&dpr=2 2x`}
                     alt={galleryItem.description}
                     loading="lazy"
-                    /> : <p onClick={displayToggle}>{galleryItem.description}</p>}
+                    /> : <p className="Description" onClick={displayToggle} onPointerLeave={displayToggle}>{galleryItem.description}</p>}
                     
+                    {btnDisplay ?
                     <ImageListItemBar
-                    title={<button onClick={(event) => {handleLike(galleryItem)}}>Good Boy! Have a Treat!</button>}
-                    // subtitle={<span>🦴 treats 🦴 = {galleryItem.likes}</span>}
+                    title={<Button onClick={(event) => {handleLike(galleryItem)}} variant="outlined">Good Boy! Have a Treat!</Button>}
                     position="below"
                     />
-                </ImageListItem>
-                
-        
+                    :
+                    <ImageListItemBar
+                    title={<Button>🦴 {galleryItem.likes} treats 🦴</Button>}
+                    position="below"
+                    />
+                    }
+                </ImageListItem>  
 
     )
 }
