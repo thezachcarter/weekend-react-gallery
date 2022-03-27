@@ -21,6 +21,6 @@ include a database.sql file documenting your database tables
 [ ]Client side form (use absolute URL for images)
 [ ]Server side route for posting an image
 [ ]Ability to delete a gallery item
-[ ]Add styling with Material-UI https://material-ui.com/
+[x]Add styling with Material-UI https://material-ui.com/
 [ ]Implement uppy for image upload
 NOTE: The above stretch goals are intended to be completed in order.
