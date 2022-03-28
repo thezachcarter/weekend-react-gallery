@@ -9,35 +9,35 @@ const pool = require('../modules/pool.js');
 
 //PREVIOUS ROUTE, BEFORE DATABASE
 // router.put('/like/:id', (req, res) => {
-    // console.log(req.params);
-    // const galleryId = req.params.id;
-    // for(const galleryItem of galleryItems) {
-    //     if(galleryItem.id == galleryId) {
-    //         galleryItem.likes += 1;
-    //     }
-    // }
-    // res.sendStatus(200);
+// console.log(req.params);
+// const galleryId = req.params.id;
+// for(const galleryItem of galleryItems) {
+//     if(galleryItem.id == galleryId) {
+//         galleryItem.likes += 1;
+//     }
+// }
+// res.sendStatus(200);
 // }
 
-    router.put('/like/:id/:likes', (req, res) => {
-        let galleryId = req.params.id;
-        let galleryLikes = req.params.likes;
-        galleryLikes = Number(galleryLikes) + 1;
-        
-            const queryText = `
+router.put('/like/:id/:likes', (req, res) => {
+    let galleryId = req.params.id;
+    let galleryLikes = req.params.likes;
+    galleryLikes = Number(galleryLikes) + 1;
+
+    const queryText = `
             UPDATE "images"
             SET "likes" = $1
             WHERE "id" = $2
             `;
 
-            pool.query(queryText, [galleryLikes, galleryId])
-            .then(result => {
-                res.sendStatus(200);
-            }).catch(err => {
-                console.log(err);
-            });
+    pool.query(queryText, [galleryLikes, galleryId])
+        .then(result => {
+            res.sendStatus(200);
+        }).catch(err => {
+            console.log(err);
+        });
 
-    }); 
+});
 // END PUT Route
 
 // GET Route
@@ -46,7 +46,7 @@ const pool = require('../modules/pool.js');
 // router.get('/', (req, res) => {
 //     res.send(galleryItems);
 //     console.log(galleryItems);
-    
+
 // });
 
 router.get('/', (req, res) => {
